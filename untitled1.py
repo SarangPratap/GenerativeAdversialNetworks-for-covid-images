@@ -111,18 +111,6 @@ def load_real_samples():
   
   X = np.zeros((numImages, 128, 128, 3)) # change as per image size
   print ("Loading Images...")
-  
-  """with progressbar.ProgressBar(maxval=numImages) as bar:
-    i = 0
-    for file in os.listdir(location):
-      filename = os.fsdecode(file)
-      toLoad = os.path.join(location, filename)
-      #print(toLoad)
-      #X[i] = np.array(Image.open(toLoad),dtype=np.uint8)
-      X[i] = np.array(Image.open(toLoad).resize((128,128), Image.LANCZOS),dtype=np.uint8)
-      i+=1
-      #print(i)
-      bar.update(i)"""
   X = X.astype('float32')
   X = (X - 127.5) / 127.5
   return X 
